@@ -1,3 +1,4 @@
+import { ListMove } from "./components/ListMove";
 import { Register } from "./components/Register";
 import { Topnavar } from "./components/Topnavar";
 import { MoneyContextProvider } from "./contexts/MoneyContext";
@@ -7,8 +8,9 @@ export const App = () => {
     <div>
       <MoneyContextProvider>
         <Topnavar />
-        <div className="container">
+        <div className="d-flex">
           <Register />
+          <ListMove />
         </div>
       </MoneyContextProvider>
     </div>

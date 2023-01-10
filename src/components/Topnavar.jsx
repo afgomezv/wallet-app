@@ -1,13 +1,14 @@
 import { FcMoneyTransfer } from "react-icons/fc";
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { MoneyContext } from "../contexts/MoneyContext";
 
 import "../styles/Topnavar.scss";
 
 export const Topnavar = () => {
-  const initialBalance = useContext(MoneyContext);
+  const { initialBalance, setInitialBalance } = useContext(MoneyContext);
+  const [finalbalance, setFinalBalance] = useState(0);
 
   return (
     <div className="navbar">
@@ -30,6 +31,7 @@ export const Topnavar = () => {
                 type="text"
                 name="intialbalance"
                 value={initialBalance}
+                onChange={(e) => setInitialBalance(e.target.value)}
               />
             </div>
           </div>
@@ -43,7 +45,8 @@ export const Topnavar = () => {
                 className="input"
                 type="text"
                 name="finalbalance"
-                value={0}
+                value={finalbalance}
+                onChange={(e) => setFinalBalance(e.target.value)}
               />
             </div>
           </div>
